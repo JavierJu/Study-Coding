@@ -3,77 +3,58 @@
     <head>
         <title>WEB1 - JavaScript</title>
         <meta charset="utf-8">
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-3NST8CJ4FC"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'G-3NST8CJ4FC');
-        </script>
-        <link rel="stylesheet" href="style.css">
     </head>
     <body style="background-color: white; color: black;">
         <h1><a href="index.html">WEB</a></h1>
+        
+        <input type="button" value="night" onclick="
+            var target = document.querySelector('body');
+            if(this.value==='night') {
+                target.style.backgroundColor = 'black';
+                target.style.color = 'white';
+                this.value = 'day';
 
-        <input id="night_day" type="button" value="night" onclick="
-            if(document.querySelector('#night_day').value === 'night') {
-                document.querySelector('body').style.backgroundColor='black'; 
-                document.querySelector('body').style.color='white';   
-                document.querySelector('#night_day').value = 'day';
+                var alist = document.querySelectorAll('a');
+                var i = 0;
+                while(i < alist.length) {
+                    alist[i].style.color='powderblue';
+                    i = i + 1;
+                }
             } else {
-                document.querySelector('body').style.backgroundColor='white'; 
-                document.querySelector('body').style.color='black';
-                document.querySelector('#night_day').value = 'night';
+                target.style.backgroundColor = 'white';
+                target.style.color = 'black';
+                this.value = 'night';
+
+                var alist = document.querySelectorAll('a');
+                var i = 0;
+                while(i < alist.length) {
+                    alist[i].style.color='blue';
+                    i = i + 1;
+                }
             }
         ">
 
-        <div id="grid">
-            <ol>
-                <li><a href="1.html">HTML</a></li>
-                <li><a href="2.html">CSS</a></li>
-                <li><a href="3.html">JavaScript</a></li>
-            </ol> 
-            <div id="article">
-                <h2>JavaScript이란 무엇인가</h2>
-                <p>
-                    JavaScript is a high-level programming language that follows the ECMAScript standard. It was originally designed as a scripting language for websites but became widely adopted as a general-purpose programming language, and is currently the most popular programming language in use. JavaScript is usually found running in a web browser as interactive or automated content, ranging from popup messages and live clocks to large web applications. JavaScript is also commonly used in server-side programming through platforms like Node.js, or "embedded" in non-JavaScript applications where the base programming language lacks the high-level functionality that JavaScript offers.
-                </p>
-            </div>
-        </div>
-        <div id="disqus_thread"></div>
-        <script>
-            /**
-            *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-            *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
-            /*
-            var disqus_config = function () {
-            this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-            this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-            };
-            */
-            (function() { // DON'T EDIT BELOW THIS LINE
-            var d = document, s = d.createElement('script');
-            s.src = 'https://web-test1-6.disqus.com/embed.js';
-            s.setAttribute('data-timestamp', +new Date());
-            (d.head || d.body).appendChild(s);
-            })();
-        </script>
-        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-        <script id="dsq-count-scr" src="//web-test1-6.disqus.com/count.js" async></script>
-        <!--Start of Tawk.to Script-->
-        <script type="text/javascript">
-            var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-            (function(){
-            var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-            s1.async=true;
-            s1.src='https://embed.tawk.to/66f4d2a94cbc4814f7deea30/1i8m5dq29';
-            s1.charset='UTF-8';
-            s1.setAttribute('crossorigin','*');
-            s0.parentNode.insertBefore(s1,s0);
-            })();
-        </script>
-        <!--End of Tawk.to Script-->
+        <ol>
+            <li><a href="1.html">HTML</a></li>
+            <li><a href="2.html">CSS</a></li>
+            <li><a href="3.html">JavaScript</a></li>
+        </ol> 
+
+        <h2>JavaScript이란 무엇인가</h2>
+        <p><span id="first" class="js">JavaScript</span> is a high-level programming <span>language</span> that follows the ECMAScript standard. It was originally designed as a scripting language for websites but became widely adopted as a general-purpose programming language, and is currently the most popular programming language in use. <span class="js">JavaScript</span> is usually found running in a web browser as interactive or automated content, ranging from popup messages and live clocks to large web applications. <span class="js">JavaScript</span> is also commonly used in server-side programming through platforms like Node.js, or "embedded" in non-JavaScript applications where the base programming language lacks the high-level functionality that <span class="js">JavaScript</span> offers.</p>
+
+        <input type="button" value="night" onclick="
+        var target = document.querySelector('body');
+            if(this.value==='night') {
+                target.style.backgroundColor = 'black';
+                target.style.color = 'white';
+                this.value = 'day';
+            } else {
+                target.style.backgroundColor = 'white';
+                target.style.color = 'black';
+                this.value = 'night';
+            }
+       ">
+
     </body>
 </html>
