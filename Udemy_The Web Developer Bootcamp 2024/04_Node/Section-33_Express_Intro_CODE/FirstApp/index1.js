@@ -1,10 +1,15 @@
-const express = require("express");
+const express = require('express');
 const app = express();
 
-app.use(() => {
-    console.log('Request recieved!');
-})
+const PORT = 3000;
 
-app.listen(3000, () => {
-    console.log('listening on port 3000!');
-})
+// 기본 라우트
+app.get('/', (req, res) => {
+    res.send('Hello, Express!');
+});
+
+// 서버 실행
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+});
+
