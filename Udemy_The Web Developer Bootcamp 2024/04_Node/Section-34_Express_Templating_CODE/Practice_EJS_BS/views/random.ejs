@@ -1,23 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
+<%- include('partials/head') %>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random Numbers</title>
-</head>
+    <%- include('partials/navbar') %>
 
-<body>
-    <h1>Your random number is <%= rand %>
-    </h1>
-    <% if (rand % 2===0) { %>
-        <h2>This is a even number!</h2>
-        <% } else { %>
-            <h2>This is a odd number!</h2>
-            <% } %>
-                <h3>
-                    <%= rand%2===0 ? 'EVEN' : 'ODD' %>
-                </h3>
-</body>
+        <h1>Your random number is <%= rand %>
+        </h1>
+        <% if (rand % 2===0) { %>
+            <h2>This is a even number!</h2>
+            <% } else { %>
+                <h2>This is a odd number!</h2>
+                <% } %>
+                    <h3>
+                        <%= rand%2===0 ? 'EVEN' : 'ODD' %>
+                    </h3>
 
-</html>
+                    <%- include('partials/footer') %>

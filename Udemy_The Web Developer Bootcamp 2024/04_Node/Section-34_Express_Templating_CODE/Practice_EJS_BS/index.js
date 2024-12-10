@@ -35,7 +35,7 @@ app.get('/cats', (req, res) => {
 
 app.get('/rand', (req, res) => {
     const num = Math.floor(Math.random() * 10) + 1;
-    res.render('random', { rand: num });
+    res.render('random', { rand: num, name: 'random' });
 });
 
 app.get('/r/:subreddit', (req, res) => {
@@ -47,11 +47,6 @@ app.get('/r/:subreddit', (req, res) => {
         res.render('notfound', { subreddit });
     }
 });
-
-app.get('/r/:subreddit/:postId', (req, res) => {
-    const { subreddit, postId } = req.params;
-    res.send(`<h1>Viewing Post ID: ${postId} on the ${subreddit} subreddit</h1>`)
-})
 
 app.get('/search', (req, res) => {
     console.log(req.query);
