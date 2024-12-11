@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A New Comment</title>
+</head>
+
+<body>
+    <h1>A New Comment</h1>
+    <form action="/comments" method="post">
+        <section>
+            <label for="username">Your username : </label>
+            <input type="text" name="username" id="username" placeholder="username">
+        </section>
+        <section>
+            <label for="comment">Comment test : </label>
+            <br>
+            <textarea name="comment" id="comment" cols="40" rows="5"></textarea>
+        </section>
+        <button type="submit">Submit</button>
+    </form>
+    <a href="http://localhost:3000/comments">View all comments!</a>
+
+</body>
+
+</html>

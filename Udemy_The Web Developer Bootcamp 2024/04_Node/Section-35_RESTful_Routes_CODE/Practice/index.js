@@ -14,13 +14,59 @@ app.listen(3000, () => {
     console.log(`Server is running on http://localhost:3000`);
 });
 
-app.get('/', (req, res) => {
-    // res.render('');
+// Our fake database:
+let comments = [
+    {
+        // id: uuid(),
+        username: 'Todd',
+        comment: 'lol that is so funny!'
+    },
+    {
+        // id: uuid(),
+        username: 'Skyler',
+        comment: 'I like to go birdwatching with my dog'
+    },
+    {
+        // id: uuid(),
+        username: 'Sk8erBoi',
+        comment: 'Plz delete your account, Todd'
+    },
+    {
+        // id: uuid(),
+        username: 'onlysayswoof',
+        comment: 'woof woof woof'
+    }
+]
+
+app.get('/comments', (req, res) => {
+    res.render('comments/index', { comments });
 })
+
+app.get('/comments/new', (req, res) => {
+    res.render('comments/new', { comments });
+})
+
+app.post('/comments', (req, res) => {
+    const { username, comment } = req.body;
+    comments.push({ username, comment });
+    // res.send('it worked!');
+    res.redirect('/comments');
+})
+
+
+
+
+
+
+app.get('/', (req, res) => {
+    res.render('home');
+})
+
 app.get('/tacos', (req, res) => {
     res.send('GET /tacos response');
     // res.render('tacos');
 })
+
 app.post('/tacos', (req, res) => {
     const { meat, qty } = req.body;
     // res.send('POST /tacos response');
