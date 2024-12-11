@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const path = require('path')
+const { v4: uuid } = require('uuid');
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json());
@@ -17,56 +18,73 @@ app.listen(3000, () => {
 // Our fake database:
 let comments = [
     {
-        // id: uuid(),
+        id: uuid(),
         username: 'Todd',
         comment: 'lol that is so funny!'
     },
     {
-        // id: uuid(),
+        id: uuid(),
         username: 'Skyler',
         comment: 'I like to go birdwatching with my dog'
     },
     {
-        // id: uuid(),
+        id: uuid(),
         username: 'Sk8erBoi',
         comment: 'Plz delete your account, Todd'
     },
     {
-        // id: uuid(),
+        id: uuid(),
         username: 'onlysayswoof',
         comment: 'woof woof woof'
+    },
+    {
+        id: uuid(),
+        username: 'onlysayswoof',
+        comment: 'woof woof woof woof!!!'
     }
 ]
 
+//Show all comments
 app.get('/comments', (req, res) => {
     res.render('comments/index', { comments });
 })
 
+//Show new comment form
 app.get('/comments/new', (req, res) => {
     res.render('comments/new', { comments });
 })
 
+//Show create a new comment
 app.post('/comments', (req, res) => {
     const { username, comment } = req.body;
-    comments.push({ username, comment });
+    comments.push({ username, comment, id: uuid() });
     // res.send('it worked!');
     res.redirect('/comments');
 })
 
+//Show one comment
+app.get('/comments/:id', (req, res) => {
+    const { id } = req.params;
+    const comment = comments.find(c => c.id === id);
+    res.render('comments/show', { comment });
+})
 
 
 
 
 
+//Show Home
 app.get('/', (req, res) => {
     res.render('home');
 })
 
+//Get request example
 app.get('/tacos', (req, res) => {
     res.send('GET /tacos response');
     // res.render('tacos');
 })
 
+//Post request example
 app.post('/tacos', (req, res) => {
     const { meat, qty } = req.body;
     // res.send('POST /tacos response');
